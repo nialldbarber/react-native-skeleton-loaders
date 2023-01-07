@@ -58,7 +58,7 @@ import { Skeleton } from 'react-native-skeleton-loaders'
 |---|---|---|---|
 | `numberOfItems` | `number` |  | There isn't a limit on how many items you can do, so use common sense! 
 | `direction` | `row,column` | `row` | This mirrors the `flex` property, so goes vertically or horizontally
-| `children` | `ReactElement<Skeleton> | Array<ReactElement<Skeleton>>` |  | This React child _must_ be a `<Skeleton />` component
+| `children` | `ReactElement<Skeleton>,Array<ReactElement<Skeleton>>` |  | This React child _must_ be a `<Skeleton />` component
 
 If you want to have a group of skeleton elements, you can add a `<SkeletonGroup />`:
 ```jsx
