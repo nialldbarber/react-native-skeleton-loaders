@@ -42,7 +42,6 @@ type BasicDimensions = {
 
 type Colors = {
   baseColor?: string
-  highlightColor?: string
 }
 
 type Speed = 400 | 500 | 700
