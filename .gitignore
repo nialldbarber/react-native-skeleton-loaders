@@ -11,6 +11,7 @@ npm-debug.*
 web-build/
 app.json
 babel.config.js
+App.tsx
 
 # macOS
 .DS_Store
