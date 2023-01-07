@@ -1,59 +1,90 @@
-import { StyleSheet, View } from 'react-native'
+import { useEffect } from 'react'
+import { View } from 'react-native'
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withRepeat,
+  withTiming,
+} from 'react-native-reanimated'
 
 export const BORDER_RADIUS = 3
+export const MX = 2
+export const MY = 2
 export const BASE_COLOR = '#ebebeb'
 export const HIGHLIGHT_COLOR = '#f5f5f5'
 
 type BasicDimensions = {
   /**
-   * the width of the skeleton element.
-   * units are in pixels
+   * the `width` of the skeleton element.
    */
-  width?: number
+  w?: number
   /**
-   * the height of the skeleton element
-   * units are in pixels
+   * the `height` of the skeleton element
    */
-  height?: number
+  h?: number
+  /**
+   * the `border radius` of the skeleton element
+   * @default 3
+   */
+  bR?: number
+  /**
+   * the `horizontal mragin` of the skeleton element
+   * @default 2
+   */
+  mX?: number
+  /**
+   * the `vertical mragin` of the skeleton element
+   * @default 2
+   */
+  mY?: number
 }
-
-type Dimensions = {
-  /**
-   * the border radius of the skeleton element
-   * units are in pixels
-   * @default 10
-   */
-  borderRadius?: number
-} & BasicDimensions
 
 type Colors = {
   baseColor?: string
   highlightColor?: string
 }
 
+type Speed = 400 | 500 | 700
+
 type Skeleton = {
-  dimensions?: Dimensions
   colors?: Colors
+  speed?: Speed
 } & BasicDimensions
 
 export default function Skeleton({
-  width,
-  height,
-  dimensions = { borderRadius: BORDER_RADIUS },
+  w,
+  h,
+  bR = BORDER_RADIUS,
+  mX = MX,
+  mY = MY,
   colors,
+  speed = 500,
 }: Skeleton) {
-  const color = {
+  const background = useSharedValue(0)
+  const animatedBackground = useAnimatedStyle(() => ({
+    opacity: background.value,
+  }))
+
+  const styles = {
+    width: w,
+    height: h,
+    borderRadius: bR,
+    marginHorizontal: mX,
+    marginVertical: mY,
     backgroundColor: colors?.baseColor || BASE_COLOR,
   }
+
+  useEffect(() => {
+    background.value = withRepeat(
+      withTiming(1, { duration: speed }),
+      Infinity,
+      true
+    )
+  }, [speed])
+
   return (
     <View>
-      <View style={[styles.fill, { width, height }, color, dimensions]} />
+      <Animated.View style={[styles, animatedBackground]} />
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  fill: {
-    backgroundColor: 'blue',
-  },
-})

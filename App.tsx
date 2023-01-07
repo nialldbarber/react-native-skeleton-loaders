@@ -6,7 +6,9 @@ export default function App() {
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
       <View style={styles.parentContainer}>
-        <Skeleton width={50} height={50} />
+        <Skeleton w={200} h={50} bR={10} />
+        <Skeleton w={200} h={50} />
+        <Skeleton w={200} h={50} />
       </View>
     </View>
   )
@@ -22,6 +24,5 @@ const styles = StyleSheet.create({
   parentContainer: {
     width: 100,
     height: 100,
-    backgroundColor: 'red',
   },
 })
