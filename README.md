@@ -15,13 +15,21 @@ In order to use this library, you _must_ have React Native Reanimated V2 install
 
 ## Skeleton
 
+For a single skeleton element, import `<Skeleton />`:
+
 ```jsx
-<Skeleton w={200} h={50} bR={10} />
+import { Skeleton } from 'react-native-skeleton-loaders'
+
+<Skeleton w={200} h={50} />
 ```
 
 ## Skeleton Group
 
+If you want to have a group of skeleton elements, you can add a `<SkeletonGroup />`. You _must_ however, nest `<Skeleton />` elements inside the group for it to work:
+
 ```jsx
+import { Skeleton } from 'react-native-skeleton-loaders'
+
 <SkeletonGroup numberOfItems={4}>
   <Skeleton w={20} h={50} />
 </SkeletonGroup>
