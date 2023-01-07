@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { Skeleton } from './index'
+import { SkeletonGroup } from './src/SkeletonGroup'
 
 export default function App() {
   return (
@@ -9,6 +10,9 @@ export default function App() {
         <Skeleton w={200} h={50} bR={10} />
         <Skeleton w={200} h={50} />
         <Skeleton w={200} h={50} />
+        <SkeletonGroup numberOfItems={4}>
+          <Skeleton w={20} h={50} />
+        </SkeletonGroup>
       </View>
     </View>
   )

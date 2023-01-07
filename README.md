@@ -43,3 +43,12 @@ Created a grid with a parent:
   ]}
 />
 ```
+
+A Skeleton Group
+
+```jsx
+<SkeletonGroup
+  direction="row" // column || row
+  numberOfItems={5} // number
+/>
+```
