@@ -15,8 +15,11 @@ In order to use this library, you _must_ have React Native Reanimated V2 install
 
 ## Install
 ```bash
-yarn add react-native-skeleton-loaders
 npm install react-native-skeleton-loaders
+```
+Or: 
+```bash
+yarn add react-native-skeleton-loaders
 ```
 
 ---
@@ -31,7 +34,7 @@ npm install react-native-skeleton-loaders
 | `bR` (borderRadius) | `number` | `3` | 
 | `mX` (marginHorizontal) | `number` | `2` | 
 | `mY` (marginVertical) | `number` | `2` | 
-| `colors` | `{ baseColor?: string, highlightColor?: string }` |  | 
+| `colors` | `{ baseColor: string, highlightColor: string }` | `{ baseColor? '#ebebeb', highlightColor: '#f5f5f5' }` | 
 | `speed` | `400,500,700` | `500` | 
 
 For a single skeleton element, import `<Skeleton />`:
