@@ -23,6 +23,9 @@ import { Skeleton } from 'react-native-skeleton-loaders'
 <Skeleton w={200} h={50} />
 ```
 
+![single-skeleton](https://user-images.githubusercontent.com/20539827/211169679-c8482df5-587f-4ae9-9fae-0428d102d341.gif)
+
+
 ## Skeleton Group
 
 If you want to have a group of skeleton elements, you can add a `<SkeletonGroup />`. You _must_ however, nest `<Skeleton />` elements inside the group for it to work:
