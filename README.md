@@ -34,7 +34,7 @@ yarn add react-native-skeleton-loaders
 | `bR` (borderRadius) | `number` | `3`
 | `mX` (marginHorizontal) | `number` | `2`
 | `mY` (marginVertical) | `number` | `2` 
-| `colors` | `{ baseColor: string }` | `{ baseColor? '#ebebeb' }`
+| `color` | `string` | `'#ebebeb'`
 | `speed` | `400,500,700` | `500`
 
 For a single skeleton element, import `<Skeleton />`:

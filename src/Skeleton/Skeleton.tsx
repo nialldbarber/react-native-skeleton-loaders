@@ -5,7 +5,6 @@ import Animated, {
   useSharedValue,
   withRepeat,
   withTiming,
-  runOnJS,
 } from 'react-native-reanimated'
 
 export const BORDER_RADIUS = 3
@@ -40,14 +39,10 @@ type BasicDimensions = {
   mY?: number
 }
 
-type Colors = {
-  baseColor?: string
-}
-
 type Speed = 400 | 500 | 700
 
 export type Skeleton = {
-  colors?: Colors
+  color?: string
   speed?: Speed
 } & BasicDimensions
 
@@ -57,7 +52,7 @@ export default function Skeleton({
   bR = BORDER_RADIUS,
   mX = MX,
   mY = MY,
-  colors,
+  color = BASE_COLOR,
   speed = 500,
 }: Skeleton) {
   const background = useSharedValue(0)
@@ -74,7 +69,7 @@ export default function Skeleton({
     borderRadius: bR,
     marginHorizontal: mX,
     marginVertical: mY,
-    backgroundColor: colors?.baseColor || BASE_COLOR,
+    backgroundColor: color,
   }
 
   useEffect(() => {
