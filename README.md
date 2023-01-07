@@ -23,7 +23,7 @@ import { Skeleton } from 'react-native-skeleton-loaders'
 <Skeleton w={200} h={50} />
 ```
 
-![single-skeleton](https://user-images.githubusercontent.com/20539827/211169679-c8482df5-587f-4ae9-9fae-0428d102d341.gif)
+![single-skeleton2](https://user-images.githubusercontent.com/20539827/211169732-e3d08e07-ffa4-49f2-af11-47c47e5f6d89.gif)
 
 
 ## Skeleton Group
