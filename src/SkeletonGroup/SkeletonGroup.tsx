@@ -1,5 +1,6 @@
-import type { ReactNode } from 'react'
+import type { ReactElement } from 'react'
 import { StyleSheet, View } from 'react-native'
+import type { Skeleton } from '../Skeleton/Skeleton'
 
 type SkeletonGroup = {
   /**
@@ -23,7 +24,7 @@ type SkeletonGroup = {
    *   <Skeleton {...args} />
    * </SkeletonGroup>
    */
-  children: ReactNode
+  children: ReactElement<Skeleton> | Array<ReactElement<Skeleton>>
 }
 
 export default function SkeletonGroup({

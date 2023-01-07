@@ -46,7 +46,7 @@ type Colors = {
 
 type Speed = 400 | 500 | 700
 
-type Skeleton = {
+export type Skeleton = {
   colors?: Colors
   speed?: Speed
 } & BasicDimensions
