@@ -5,6 +5,7 @@ import Animated, {
   useSharedValue,
   withRepeat,
   withTiming,
+  runOnJS,
 } from 'react-native-reanimated'
 
 export const BORDER_RADIUS = 3
@@ -61,9 +62,12 @@ export default function Skeleton({
   speed = 500,
 }: Skeleton) {
   const background = useSharedValue(0)
-  const animatedBackground = useAnimatedStyle(() => ({
-    opacity: background.value,
-  }))
+  const animatedBackground = useAnimatedStyle(() => {
+    'worklet'
+    return {
+      opacity: background.value,
+    }
+  })
 
   const styles = {
     width: w,
