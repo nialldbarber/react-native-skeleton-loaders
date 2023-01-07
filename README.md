@@ -24,15 +24,15 @@ npm install react-native-skeleton-loaders
 ## Component API
 ## Skeleton
 
-| Prop | Type | Default | Note |
+| Prop | Type | Default Value | Notes |
 |---|---|---|---|
 | `w` (width) | `number` |  | 
 | `h` (height) | `number` |  | 
-| `bR` (borderRadius) | `number` | 3 | 
-| `mX` (marginHorizontal) | `number` | 2 | 
-| `mY` (marginVertical) | `number` | 2 | 
-| `colors` | { baseColor?: string, highlightColor?: string } |  | 
-| `speed` | `400 | 500 | 700` | 500 | 
+| `bR` (borderRadius) | `number` | `3` | 
+| `mX` (marginHorizontal) | `number` | `2` | 
+| `mY` (marginVertical) | `number` | `2` | 
+| `colors` | `{ baseColor?: string, highlightColor?: string }` |  | 
+| `speed` | `400,500,700` | `500` | 
 
 For a single skeleton element, import `<Skeleton />`:
 
