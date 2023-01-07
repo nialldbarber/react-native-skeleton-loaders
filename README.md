@@ -25,7 +25,7 @@ yarn add react-native-skeleton-loaders
 ---
 
 ## Component API
-## Skeleton
+## `<Skeleton />`
 
 | Prop | Type | Default Value |
 |---|---|---|
@@ -48,10 +48,19 @@ import { Skeleton } from 'react-native-skeleton-loaders'
 ![single-skeleton2](https://user-images.githubusercontent.com/20539827/211169732-e3d08e07-ffa4-49f2-af11-47c47e5f6d89.gif)
 
 
-## Skeleton Group
+## `<SkeletonGroup />`
 
-If you want to have a group of skeleton elements, you can add a `<SkeletonGroup />`. You _must_ however, nest `<Skeleton />` elements inside the group for it to work:
+  numberOfItems,
+  direction = 'row',
+  children,
 
+| Prop | Type | Default Value | Notes |
+|---|---|---|---|
+| `numberOfItems` | `number` |  | There isn't a limit on how many items you can do, so use common sense! 
+| `direction` | `row,column` | `row` | This mirrors the `flex` property, so goes vertically or horizontally
+| `children` | `ReactElement<Skeleton> | Array<ReactElement<Skeleton>>` |  | This React child _must_ be a `<Skeleton />` component
+
+If you want to have a group of skeleton elements, you can add a `<SkeletonGroup />`:
 ```jsx
 import { SkeletonGroup, Skeleton } from 'react-native-skeleton-loaders'
 
