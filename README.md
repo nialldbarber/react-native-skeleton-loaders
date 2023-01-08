@@ -10,6 +10,13 @@ React Native Skeleton Loaders
 
 A small, intuitive type-safe package for simple skeleton loaders that you can add whilst your app is in a loading state.
 
+## Table of contents
+- [Prerequisites](#prerequisites)
+- [Install](#install)
+- [How it works](#how-it-works)
+- [Component API](#component-api)
+- [Staggering child elements](#staggering-child-elements)
+
 ## Prerequisites
 
 In order to use this library, you _must_ have React Native Reanimated V2 installed. Check out the installation process [here](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation) before you go any further!
