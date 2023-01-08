@@ -8,19 +8,43 @@ React Native Skeleton Loaders
 
 [![npm version](https://img.shields.io/npm/v/react-native-skeleton-loaders.svg?style=flat)](https://www.npmjs.com/package/react-native-skeleton-loaders)
 
-A small, intuitive package for simple skeleton loaders that you can add whilst your app is in a loading state.
+A small, intuitive, type-safe package for simple skeleton loaders that you can add whilst your app is in a loading state.
+
+## Table of contents
+- [Prerequisites](#prerequisites)
+- [Install](#install)
+- [How it works](#how-it-works)
+- [Component API](#component-api)
+- [Staggering child elements](#staggering-child-elements)
 
 ## Prerequisites
 
 In order to use this library, you _must_ have React Native Reanimated V2 installed. Check out the installation process [here](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation) before you go any further!
 
 ## Install
-```bash
+```sh
 npm install react-native-skeleton-loaders
 ```
 Or: 
-```bash
+```sh
 yarn add react-native-skeleton-loaders
+```
+
+## How it works
+Whilst waiting for data to load, to give the impression to the user that things are ticking along, you can add a skeleton loader. You can simply construct a layout of skeleton elements that match up with the eventual layout when the data has loaded: 
+
+```jsx
+const DataList = ({ isLoading }) => {
+  return isLoading ? (
+    <SkeletonGroup numberOfItems={3} direction="row" stagger={{ delay: 3 }}>
+      <Skeleton w={100} h={100} />
+    </SkeletonGroup>
+  ) : (
+    <Layout>
+      <App />
+    </Layout>
+  )
+}
 ```
 
 ---
@@ -37,7 +61,7 @@ yarn add react-native-skeleton-loaders
 | `mY` (marginVertical) | `number` | `2` 
 | `color` | `string` | `'#ebebeb'`
 | `speed` | `400,500,700` | `500`
-| `circle` | `{ radius: number }` | If you use this, then `w` and `h` will be overriden by the radius
+| `circle` | `{ radius: number }` | If you use this, then `w` and `h` will be overridden by the radius
 
 For a single skeleton element, import `<Skeleton />`:
 
@@ -56,7 +80,7 @@ import { Skeleton } from 'react-native-skeleton-loaders'
 | `numberOfItems` | `number` |  | There isn't a limit on how many items you can do, so use common sense! 
 | `direction` | `row,column` | `row` | This mirrors the `flex` property, so goes vertically or horizontally
 | `stagger` | `{ delay: number }` | `{ delay: 3 }` | 
-| `children` | `ReactElement<Skeleton>,Array<ReactElement<Skeleton>>` |  | This React child _must_ be a `<Skeleton />` component
+| `children` | `ReactElement<Skeleton>` |  | This React child _must_ be a `<Skeleton />` component
 
 If you want to have a group of skeleton elements, you can add a `<SkeletonGroup />`:
 ```jsx
