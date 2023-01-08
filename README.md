@@ -55,6 +55,7 @@ import { Skeleton } from 'react-native-skeleton-loaders'
 |---|---|---|---|
 | `numberOfItems` | `number` |  | There isn't a limit on how many items you can do, so use common sense! 
 | `direction` | `row,column` | `row` | This mirrors the `flex` property, so goes vertically or horizontally
+| `stagger` | `{ delay: number }` | `{ delay: 3 }` | 
 | `children` | `ReactElement<Skeleton>,Array<ReactElement<Skeleton>>` |  | This React child _must_ be a `<Skeleton />` component
 
 If you want to have a group of skeleton elements, you can add a `<SkeletonGroup />`:
@@ -67,3 +68,23 @@ import { SkeletonGroup, Skeleton } from 'react-native-skeleton-loaders'
 ```
 
 ![single-skeleton4](https://user-images.githubusercontent.com/20539827/211169820-33f53cde-05d2-4f38-98af-224343086a6d.gif)
+
+If you want the skeleton animation to be staggered in a more traditional skeleton animation way, you can simply add the `stagger` prop along with the delay for each element: 
+
+```jsx
+import { SkeletonGroup, Skeleton } from 'react-native-skeleton-loaders'
+
+<SkeletonGroup numberOfItems={3} direction="row" stagger={{ delay: 3 }}>
+  <Skeleton w={100} h={100} />
+</SkeletonGroup>
+
+<SkeletonGroup numberOfItems={3} direction="row" stagger={{ delay: 3 }}>
+  <Skeleton w={100} h={100} />
+</SkeletonGroup>
+
+<SkeletonGroup numberOfItems={3} direction="row" stagger={{ delay: 3 }}>
+  <Skeleton w={100} h={100} />
+</SkeletonGroup>
+```
+
+![multiple-2](https://user-images.githubusercontent.com/20539827/211198597-2d3e4af5-41d2-480f-8029-e76bc46c1aa5.gif)
