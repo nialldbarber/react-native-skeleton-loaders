@@ -8,7 +8,7 @@ React Native Skeleton Loaders
 
 [![npm version](https://img.shields.io/npm/v/react-native-skeleton-loaders.svg?style=flat)](https://www.npmjs.com/package/react-native-skeleton-loaders)
 
-A small, intuitive type-safe package for simple skeleton loaders that you can add whilst your app is in a loading state.
+A small, intuitive, type-safe package for simple skeleton loaders that you can add whilst your app is in a loading state.
 
 ## Table of contents
 - [Prerequisites](#prerequisites)
@@ -61,7 +61,7 @@ const DataList = ({ isLoading }) => {
 | `mY` (marginVertical) | `number` | `2` 
 | `color` | `string` | `'#ebebeb'`
 | `speed` | `400,500,700` | `500`
-| `circle` | `{ radius: number }` | If you use this, then `w` and `h` will be overriden by the radius
+| `circle` | `{ radius: number }` | If you use this, then `w` and `h` will be overridden by the radius
 
 For a single skeleton element, import `<Skeleton />`:
 
@@ -80,7 +80,7 @@ import { Skeleton } from 'react-native-skeleton-loaders'
 | `numberOfItems` | `number` |  | There isn't a limit on how many items you can do, so use common sense! 
 | `direction` | `row,column` | `row` | This mirrors the `flex` property, so goes vertically or horizontally
 | `stagger` | `{ delay: number }` | `{ delay: 3 }` | 
-| `children` | `ReactElement<Skeleton>,Array<ReactElement<Skeleton>>` |  | This React child _must_ be a `<Skeleton />` component
+| `children` | `ReactElement<Skeleton>` |  | This React child _must_ be a `<Skeleton />` component
 
 If you want to have a group of skeleton elements, you can add a `<SkeletonGroup />`:
 ```jsx
