@@ -27,5 +27,13 @@
     "react-native",
     "react-native-reanimated"
   ],
-  "author": "Niall Barber"
+  "author": "Niall Barber",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nialldbarber/react-native-skeleton-loaders.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "license": "MIT"
 }
