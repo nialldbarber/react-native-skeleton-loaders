@@ -2,15 +2,18 @@ import { useEffect } from 'react'
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
+  withDelay,
   withRepeat,
   withTiming,
 } from 'react-native-reanimated'
+import type { SkeletonGroupT } from '../SkeletonGroup/SkeletonGroup'
 
 export const BORDER_RADIUS = 3
 export const MX = 2
 export const MY = 2
 export const BASE_COLOR = '#ebebeb'
 
+type Stagger = Pick<SkeletonGroupT, 'stagger'>
 type Dimensions = {
   /**
    * the `width` of the skeleton element.
@@ -44,6 +47,7 @@ export type Skeleton = {
   color?: string
   speed?: Speed
   circle?: Circle
+  stagger?: Stagger
 } & Dimensions
 
 export default function Skeleton({
@@ -55,6 +59,7 @@ export default function Skeleton({
   color = BASE_COLOR,
   speed = 500,
   circle,
+  stagger,
 }: Skeleton) {
   const background = useSharedValue(0)
   const animatedBackground = useAnimatedStyle(() => {
@@ -81,12 +86,12 @@ export default function Skeleton({
   }
 
   useEffect(() => {
-    background.value = withRepeat(
-      withTiming(1, { duration: speed }),
-      Infinity,
-      true
+    background.value = withDelay(
+      1000,
+      withRepeat(withTiming(1, { duration: speed }), Infinity, true)
     )
   }, [])
 
   return <Animated.View style={[styles, animatedBackground]} />
 }
+ 

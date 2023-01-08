@@ -1,8 +1,13 @@
+import React from 'react'
 import type { ReactElement } from 'react'
 import { StyleSheet, View } from 'react-native'
 import type { Skeleton } from '../Skeleton/Skeleton'
 
-type SkeletonGroupProps = {
+type Stagger = {
+  delay: number
+}
+
+export type SkeletonGroupT = {
   /**
    * the amount of skeleton elements
    * in one group
@@ -14,6 +19,13 @@ type SkeletonGroupProps = {
    * @default "row"
    */
   direction?: 'row' | 'column'
+  /**
+   * by default, the skeleton elements animate
+   * in unison. by choosing to stagger the
+   * elements, you can get a more traditional
+   * skeleton loading animation
+   */
+  stagger?: Stagger
   /**
    * the child of <SkeletonGroup />
    * note: this MUST be a <Skeleton /> component,
@@ -31,10 +43,13 @@ export default function SkeletonGroup({
   numberOfItems,
   direction = 'row',
   children,
-}: SkeletonGroupProps) {
+  stagger,
+}: SkeletonGroupT) {
   return (
     <View style={[styles.group, { flexDirection: direction }]}>
-      {[...Array(numberOfItems)].map(() => children)}
+      {[...Array(numberOfItems)].map((_, i) =>
+        React.cloneElement(children, { stagger, i })
+      )}
     </View>
   )
 }
