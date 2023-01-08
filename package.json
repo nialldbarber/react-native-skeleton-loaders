@@ -1,6 +1,6 @@
 {
   "name": "react-native-skeleton-loaders",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
