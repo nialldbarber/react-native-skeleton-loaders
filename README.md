@@ -90,3 +90,11 @@ import { SkeletonGroup, Skeleton } from 'react-native-skeleton-loaders'
 ```
 
 ![multiple-2](https://user-images.githubusercontent.com/20539827/211198597-2d3e4af5-41d2-480f-8029-e76bc46c1aa5.gif)
+
+## Contributing
+
+See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+
+## License
+
+MIT

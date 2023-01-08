@@ -16,11 +16,11 @@ type Dimensions = {
   /**
    * the `width` of the skeleton element.
    */
-  w: number
+  w?: number
   /**
    * the `height` of the skeleton element
    */
-  h: number
+  h?: number
   /**
    * the `border radius` of the skeleton element
    * @default 3
