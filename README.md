@@ -23,6 +23,23 @@ Or:
 yarn add react-native-skeleton-loaders
 ```
 
+## How it works
+Whilst waiting for data to load, to give the impression to the user that things are ticking along, you can add a skeleton loader. You can simply construct a layout of skeleton elements that match up with the eventual layout when the data has loaded: 
+
+```jsx
+const DataList = ({ isLoading }) => {
+  return isLoading ? (
+    <SkeletonGroup numberOfItems={3} direction="row" stagger={{ delay: 3 }}>
+      <Skeleton w={100} h={100} />
+    </SkeletonGroup>
+  ) : (
+    <Layout>
+      <App />
+    </Layout>
+  )
+}
+```
+
 ---
 
 ## Component API
