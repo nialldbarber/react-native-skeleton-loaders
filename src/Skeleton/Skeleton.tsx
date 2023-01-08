@@ -86,12 +86,13 @@ export default function Skeleton({
   }
 
   useEffect(() => {
-    background.value = withDelay(
-      1000,
-      withRepeat(withTiming(1, { duration: speed }), Infinity, true)
-    )
+    background.value = stagger
+      ? withDelay(
+          stagger?.stagger * 1000,
+          withRepeat(withTiming(1, { duration: speed }), Infinity, true)
+        )
+      : withRepeat(withTiming(1, { duration: speed }), Infinity, true)
   }, [])
 
   return <Animated.View style={[styles, animatedBackground]} />
 }
- 

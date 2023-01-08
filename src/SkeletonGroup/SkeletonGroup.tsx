@@ -1,4 +1,4 @@
-import React from 'react'
+import { cloneElement } from 'react'
 import type { ReactElement } from 'react'
 import { StyleSheet, View } from 'react-native'
 import type { Skeleton } from '../Skeleton/Skeleton'
@@ -45,10 +45,13 @@ export default function SkeletonGroup({
   children,
   stagger,
 }: SkeletonGroupT) {
+  const formatIndex = (i: number) => i + 1
   return (
     <View style={[styles.group, { flexDirection: direction }]}>
       {[...Array(numberOfItems)].map((_, i) =>
-        React.cloneElement(children, { stagger, i })
+        cloneElement(children, {
+          stagger: formatIndex(i) + stagger?.delay,
+        })
       )}
     </View>
   )
