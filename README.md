@@ -37,7 +37,7 @@ yarn add react-native-skeleton-loaders
 | `mY` (marginVertical) | `number` | `2` 
 | `color` | `string` | `'#ebebeb'`
 | `speed` | `400,500,700` | `500`
-| `circle` | `{ radius: number }` |
+| `circle` | `{ radius: number }` | If you use this, then `w` and `h` will be overriden by the radius
 
 For a single skeleton element, import `<Skeleton />`:
 
