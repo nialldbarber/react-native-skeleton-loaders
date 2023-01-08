@@ -1,9 +1,10 @@
 <div align="center">
 <img width="300" alt="Screenshot 2023-01-08 at 08 50 02" src="https://user-images.githubusercontent.com/20539827/211187913-f52bd263-a459-4084-bb42-c9a641a04558.png">
 </div>
-<h1 align="center">
+
+<h2>
 React Native Skeleton Loaders
-</h1>
+</h2>
 
 [![npm version](https://img.shields.io/npm/v/react-native-skeleton-loaders.svg?style=flat)](https://www.npmjs.com/package/react-native-skeleton-loaders)
 
