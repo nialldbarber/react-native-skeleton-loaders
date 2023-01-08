@@ -2,7 +2,7 @@ import type { ReactElement } from 'react'
 import { StyleSheet, View } from 'react-native'
 import type { Skeleton } from '../Skeleton/Skeleton'
 
-type SkeletonGroup = {
+type SkeletonGroupProps = {
   /**
    * the amount of skeleton elements
    * in one group
@@ -31,7 +31,7 @@ export default function SkeletonGroup({
   numberOfItems,
   direction = 'row',
   children,
-}: SkeletonGroup) {
+}: SkeletonGroupProps) {
   return (
     <View style={[styles.group, { flexDirection: direction }]}>
       {[...Array(numberOfItems)].map(() => children)}

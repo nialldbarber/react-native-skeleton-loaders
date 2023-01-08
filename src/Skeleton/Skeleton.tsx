@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { View } from 'react-native'
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -11,17 +10,16 @@ export const BORDER_RADIUS = 3
 export const MX = 2
 export const MY = 2
 export const BASE_COLOR = '#ebebeb'
-export const HIGHLIGHT_COLOR = '#f5f5f5'
 
-type BasicDimensions = {
+type Dimensions = {
   /**
    * the `width` of the skeleton element.
    */
-  w?: number
+  w: number
   /**
    * the `height` of the skeleton element
    */
-  h?: number
+  h: number
   /**
    * the `border radius` of the skeleton element
    * @default 3
@@ -40,11 +38,13 @@ type BasicDimensions = {
 }
 
 type Speed = 400 | 500 | 700
+type Circle = { radius: number }
 
 export type Skeleton = {
   color?: string
   speed?: Speed
-} & BasicDimensions
+  circle?: Circle
+} & Dimensions
 
 export default function Skeleton({
   w,
@@ -54,6 +54,7 @@ export default function Skeleton({
   mY = MY,
   color = BASE_COLOR,
   speed = 500,
+  circle,
 }: Skeleton) {
   const background = useSharedValue(0)
   const animatedBackground = useAnimatedStyle(() => {
@@ -63,13 +64,20 @@ export default function Skeleton({
     }
   })
 
+  const dimensions = { width: w, height: h }
+  const determineType = circle
+    ? {
+        borderRadius: circle.radius,
+        width: circle.radius,
+        height: circle.radius,
+      }
+    : dimensions
   const styles = {
-    width: w,
-    height: h,
     borderRadius: bR,
     marginHorizontal: mX,
     marginVertical: mY,
     backgroundColor: color,
+    ...determineType,
   }
 
   useEffect(() => {
@@ -78,11 +86,7 @@ export default function Skeleton({
       Infinity,
       true
     )
-  }, [speed])
+  }, [])
 
-  return (
-    <View>
-      <Animated.View style={[styles, animatedBackground]} />
-    </View>
-  )
+  return <Animated.View style={[styles, animatedBackground]} />
 }

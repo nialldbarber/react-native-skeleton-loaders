@@ -37,6 +37,7 @@ yarn add react-native-skeleton-loaders
 | `mY` (marginVertical) | `number` | `2` 
 | `color` | `string` | `'#ebebeb'`
 | `speed` | `400,500,700` | `500`
+| `circle` | `{ radius: number }` |
 
 For a single skeleton element, import `<Skeleton />`:
 
@@ -50,11 +51,6 @@ import { Skeleton } from 'react-native-skeleton-loaders'
 
 
 ## `<SkeletonGroup />`
-
-  numberOfItems,
-  direction = 'row',
-  children,
-
 | Prop | Type | Default Value | Notes |
 |---|---|---|---|
 | `numberOfItems` | `number` |  | There isn't a limit on how many items you can do, so use common sense! 
