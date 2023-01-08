@@ -6,14 +6,12 @@ import Animated, {
   withRepeat,
   withTiming,
 } from 'react-native-reanimated'
-import type { SkeletonGroupT } from '../SkeletonGroup/SkeletonGroup'
 
 export const BORDER_RADIUS = 3
 export const MX = 2
 export const MY = 2
 export const BASE_COLOR = '#ebebeb'
 
-type Stagger = Pick<SkeletonGroupT, 'stagger'>
 type Dimensions = {
   /**
    * the `width` of the skeleton element.
@@ -47,7 +45,7 @@ export type Skeleton = {
   color?: string
   speed?: Speed
   circle?: Circle
-  stagger?: Stagger
+  stagger?: number
 } & Dimensions
 
 export default function Skeleton({
@@ -88,7 +86,7 @@ export default function Skeleton({
   useEffect(() => {
     background.value = stagger
       ? withDelay(
-          stagger?.stagger * 1000,
+          stagger * 100,
           withRepeat(withTiming(1, { duration: speed }), Infinity, true)
         )
       : withRepeat(withTiming(1, { duration: speed }), Infinity, true)
