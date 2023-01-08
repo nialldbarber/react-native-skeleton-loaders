@@ -69,6 +69,8 @@ import { SkeletonGroup, Skeleton } from 'react-native-skeleton-loaders'
 
 ![single-skeleton4](https://user-images.githubusercontent.com/20539827/211169820-33f53cde-05d2-4f38-98af-224343086a6d.gif)
 
+### Staggering child elements
+
 If you want the skeleton animation to be staggered in a more traditional skeleton animation way, you can simply add the `stagger` prop along with the delay for each element: 
 
 ```jsx
