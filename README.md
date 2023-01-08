@@ -8,18 +8,18 @@ React Native Skeleton Loaders
 
 [![npm version](https://img.shields.io/npm/v/react-native-skeleton-loaders.svg?style=flat)](https://www.npmjs.com/package/react-native-skeleton-loaders)
 
-A small, intuitive package for simple skeleton loaders that you can add whilst your app is in a loading state.
+A small, intuitive type-safe package for simple skeleton loaders that you can add whilst your app is in a loading state.
 
 ## Prerequisites
 
 In order to use this library, you _must_ have React Native Reanimated V2 installed. Check out the installation process [here](https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation) before you go any further!
 
 ## Install
-```bash
+```sh
 npm install react-native-skeleton-loaders
 ```
 Or: 
-```bash
+```sh
 yarn add react-native-skeleton-loaders
 ```
 
