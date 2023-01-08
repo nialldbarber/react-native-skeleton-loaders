@@ -3,6 +3,8 @@ import type { ReactElement } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { formatIndex } from '../utils'
 
+export const DELAY_DEFAULT = 3
+
 type Stagger = {
   /**
    * by default, the skeleton elements animate
@@ -43,15 +45,15 @@ export type SkeletonGroupT = {
 export default function SkeletonGroup({
   numberOfItems,
   direction = 'row',
-  stagger = { delay: 3 },
+  stagger = { delay: DELAY_DEFAULT },
   children,
 }: SkeletonGroupT) {
   return (
     <View style={[styles.group, { flexDirection: direction }]}>
-      {[...Array(numberOfItems)].map((_, i) =>
+      {[...Array(numberOfItems)].map((_, key) =>
         cloneElement(children, {
-          key: i,
-          stagger: formatIndex(i) + stagger?.delay,
+          key,
+          stagger: formatIndex(key) + stagger?.delay,
         })
       )}
     </View>

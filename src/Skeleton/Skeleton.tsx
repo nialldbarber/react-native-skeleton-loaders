@@ -46,7 +46,9 @@ export type Skeleton = {
   speed?: Speed
   circle?: Circle
   stagger?: number
-} & Dimensions
+}
+
+type SkeletonProps = Skeleton & Dimensions
 
 export default function Skeleton({
   w,
@@ -58,7 +60,7 @@ export default function Skeleton({
   speed = 500,
   circle,
   stagger,
-}: Skeleton) {
+}: SkeletonProps) {
   const background = useSharedValue(0)
   const animatedBackground = useAnimatedStyle(() => {
     'worklet'
