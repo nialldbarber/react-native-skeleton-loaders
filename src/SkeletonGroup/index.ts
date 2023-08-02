@@ -1,1 +1,1 @@
-export { default as SkeletonGroup } from './SkeletonGroup'
+export { default as SkeletonGroup } from "./SkeletonGroup";

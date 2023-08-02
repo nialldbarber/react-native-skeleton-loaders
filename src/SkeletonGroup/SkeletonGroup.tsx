@@ -1,9 +1,9 @@
-import { cloneElement } from 'react'
-import type { ReactElement } from 'react'
-import { StyleSheet, View } from 'react-native'
-import { formatIndex } from '../utils'
+import React, { cloneElement } from "react";
+import type { ReactElement } from "react";
+import { StyleSheet, View } from "react-native";
+import { formatIndex } from "../lib";
 
-export const DELAY_DEFAULT = 3
+export const DELAY_DEFAULT = 3;
 
 type Stagger = {
   /**
@@ -13,22 +13,22 @@ type Stagger = {
    * skeleton loading animation
    * @default 3
    */
-  delay: number
-}
+  delay: number;
+};
 
 export type SkeletonGroupT = {
   /**
    * the amount of skeleton elements
    * in one group
    */
-  numberOfItems: number
+  numberOfItems: number;
   /**
    * the direction flow of skeleton elements.
    * i.e. either vertical or horizontal
    * @default "row"
    */
-  direction?: 'row' | 'column'
-  stagger?: Stagger
+  direction?: "row" | "column";
+  stagger?: Stagger;
   /**
    * the child of <SkeletonGroup />
    * note: this MUST be a <Skeleton /> component,
@@ -39,12 +39,12 @@ export type SkeletonGroupT = {
    *   <Skeleton {...args} />
    * </SkeletonGroup>
    */
-  children: ReactElement<any>
-}
+  children: ReactElement<any>;
+};
 
 export default function SkeletonGroup({
   numberOfItems,
-  direction = 'row',
+  direction = "row",
   stagger = { delay: DELAY_DEFAULT },
   children,
 }: SkeletonGroupT) {
@@ -57,9 +57,9 @@ export default function SkeletonGroup({
         })
       )}
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-  group: { display: 'flex' },
-})
+  group: { display: "flex" },
+});

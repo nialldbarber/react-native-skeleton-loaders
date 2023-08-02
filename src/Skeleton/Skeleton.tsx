@@ -1,54 +1,48 @@
-import { useEffect } from 'react'
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withDelay,
-  withRepeat,
-  withTiming,
-} from 'react-native-reanimated'
+import React, { useEffect } from "react";
+import { Animated } from "react-native";
 
-export const BORDER_RADIUS = 3
-export const MX = 2
-export const MY = 2
-export const BASE_COLOR = '#ebebeb'
+export const BORDER_RADIUS = 3;
+export const MX = 2;
+export const MY = 2;
+export const BASE_COLOR = "#ebebeb";
 
 type Dimensions = {
   /**
    * the `width` of the skeleton element.
    */
-  w?: number
+  w?: number;
   /**
    * the `height` of the skeleton element
    */
-  h?: number
+  h?: number;
   /**
    * the `border radius` of the skeleton element
    * @default 3
    */
-  bR?: number
+  bR?: number;
   /**
    * the `horizontal mragin` of the skeleton element
    * @default 2
    */
-  mX?: number
+  mX?: number;
   /**
    * the `vertical mragin` of the skeleton element
    * @default 2
    */
-  mY?: number
-}
+  mY?: number;
+};
 
-type Speed = 400 | 500 | 700
-type Circle = { radius: number }
+type Speed = 400 | 500 | 700;
+type Circle = { radius: number };
 
 export type Skeleton = {
-  color?: string
-  speed?: Speed
-  circle?: Circle
-  stagger?: number
-}
+  color?: string;
+  speed?: Speed;
+  circle?: Circle;
+  stagger?: number;
+};
 
-type SkeletonProps = Skeleton & Dimensions
+type SkeletonProps = Skeleton & Dimensions;
 
 export default function Skeleton({
   w,
@@ -61,38 +55,46 @@ export default function Skeleton({
   circle,
   stagger,
 }: SkeletonProps) {
-  const background = useSharedValue(0)
-  const animatedBackground = useAnimatedStyle(() => {
-    'worklet'
-    return {
-      opacity: background.value,
-    }
-  })
+  const background = new Animated.Value(0);
 
-  const dimensions = { width: w, height: h }
+  const dimensions = { width: w, height: h };
   const determineType = circle
     ? {
         borderRadius: circle.radius,
         width: circle.radius,
         height: circle.radius,
       }
-    : dimensions
+    : dimensions;
   const styles = {
     borderRadius: bR,
     marginHorizontal: mX,
     marginVertical: mY,
     backgroundColor: color,
     ...determineType,
-  }
+    opacity: background,
+  };
 
   useEffect(() => {
-    background.value = stagger
-      ? withDelay(
-          stagger * 100,
-          withRepeat(withTiming(1, { duration: speed }), Infinity, true)
-        )
-      : withRepeat(withTiming(1, { duration: speed }), Infinity, true)
-  }, [])
+    const animation = Animated.sequence([
+      Animated.timing(background, {
+        toValue: 1,
+        duration: speed,
+        useNativeDriver: true,
+      }),
+      Animated.timing(background, {
+        toValue: 0,
+        duration: speed,
+        useNativeDriver: true,
+      }),
+    ]);
 
-  return <Animated.View style={[styles, animatedBackground]} />
+    if (stagger) {
+      const delayAnimation = Animated.delay(stagger * 100);
+      Animated.sequence([delayAnimation, Animated.loop(animation)]).start();
+    } else {
+      Animated.loop(animation).start();
+    }
+  }, []);
+
+  return <Animated.View style={styles} />;
 }
